@@ -1,13 +1,14 @@
-# Use an official Maven image to build the application
-FROM maven:3.8.6-openjdk-18 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean install
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:18-jdk-alpine
 
-# Use an official OpenJDK image to run the application
-FROM openjdk:18-jdk-slim
+# Set the working directory in the container
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+
+# Copy the JAR file into the container
+COPY target/spring-boot-library.jar /app/spring-boot-library.jar
+
+# Expose the port that the Spring Boot app runs on
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
 
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "/app/spring-boot-library.jar"]
