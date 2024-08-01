@@ -5,7 +5,7 @@ FROM openjdk:18-jdk-alpine
 WORKDIR /app
 
 # Copy the JAR file into the container
-COPY target/spring-boot-library.jar /app/spring-boot-library.jar
+COPY target/spring-boot-library.jar
 
 # Expose the port that the Spring Boot app runs on
 EXPOSE 8080
