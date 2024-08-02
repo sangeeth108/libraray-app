@@ -71,7 +71,7 @@ export const AdminMessages = () => {
   }
 
   async function submitResponseToQuestion(id: number, response: string) {
-    const url = `http://localhost:8080/api/messages/secure/admin/message`;
+    const url = `${config.baseURL}/api/messages/secure/admin/message`;
     if (
       authState &&
       authState?.isAuthenticated &&

@@ -3,6 +3,7 @@ import BookModel from "../../models/BookModel";
 import { SpinnerLoading } from "../Utils/SpinnerLoading";
 import { SearchBook } from "./components/SearchBook";
 import { Pagination } from "../Utils/Pagination";
+import config from "../../config";
 
 export const SearchBooksPage = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -18,7 +19,7 @@ export const SearchBooksPage = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const baseUrl: string = "http://localhost:8080/api/books";
+      const baseUrl: string = `${config.baseURL}/api/books`;
 
       let url: string = "";
 
