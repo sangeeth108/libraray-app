@@ -6,7 +6,7 @@ import com.luv2code.spring_boot_library.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://libraray-app-1.onrender.com")
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {

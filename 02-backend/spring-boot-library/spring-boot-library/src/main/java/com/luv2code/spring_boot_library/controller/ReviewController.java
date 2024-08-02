@@ -5,7 +5,7 @@ import com.luv2code.spring_boot_library.service.ReviewService;
 import com.luv2code.spring_boot_library.utils.ExtractJWT;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://libraray-app-1.onrender.com")
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewController {
