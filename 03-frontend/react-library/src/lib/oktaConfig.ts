@@ -4,5 +4,5 @@ export const oktaConfig = {
     redirectUri: 'https://libraray-app-1.onrender.com/login/callback',
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
-    disableHttpsCheck: true,
+    disableHttpsCheck: false,
 }
