@@ -1,6 +1,6 @@
 // src/config.js
 const config = {
-    baseURL: 'https://libraray-app.onrender.com'
+    baseURL: 'http://localhost:8080'
   };
   
   export default config;

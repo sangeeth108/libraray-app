@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin("https://libraray-app-1.onrender.com")
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/api/books")
 
