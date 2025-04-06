@@ -10,12 +10,13 @@ export const Navbar = () => {
   }
 
   const handleLogout = async () => oktaAuth.signOut();
-  console.log(authState);
+
+  const userName = authState?.idToken?.claims?.name || "User";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
       <div className="container-fluid">
-        <span className="navbar-brand">Luv 2 Read</span>
+        <span className="navbar-brand">MyLibraray</span>
         <button
           className="navbar-toggler"
           type="button"
@@ -31,42 +32,45 @@ export const Navbar = () => {
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink className="nav-link" to={"/home"}>
-                {" "}
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to={"/search"}>
-                {" "}
                 Search Books
               </NavLink>
             </li>
             {authState.isAuthenticated &&
               <li className="nav-item">
-                  <NavLink className='nav-link' to='/shelf'>Shelf</NavLink>
+                <NavLink className="nav-link" to="/shelf">Shelf</NavLink>
               </li>
             }
             {authState.isAuthenticated && authState.accessToken?.claims?.userType === 'admin' &&
               <li className="nav-item">
-                  <NavLink className='nav-link' to='/admin'>Admin</NavLink>
+                <NavLink className="nav-link" to="/admin">Admin</NavLink>
               </li>
             }
           </ul>
-          <ul className="navbar-nav ms-auto">
-            {!authState.isAuthenticated ? (
+          <ul className="navbar-nav ms-auto align-items-center">
+            {authState.isAuthenticated ? (
+              <>
+                <li className="nav-item me-2 text-white">
+                  {userName}
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-outline-light"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
               <li className="nav-item m-1">
                 <Link type="button" className="btn btn-outline-light" to="/login">
                   Sign in
                 </Link>
-              </li>
-            ) : (
-              <li>
-                <button
-                  className="btn btn-outline-light"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
               </li>
             )}
           </ul>
